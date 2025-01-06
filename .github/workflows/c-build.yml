@@ -24,8 +24,8 @@ jobs:
         yum install -y make gcc libcurl-devel pam-devel  # 安装 make 和 gcc 编译器
     - name: make
       run: make
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-artifact
-        path: ./build  # 假设构建输出在 ./build 目录下
+    # - name: Upload build artifacts
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: build-artifact
+    #     path: ./build  # 假设构建输出在 ./build 目录下
