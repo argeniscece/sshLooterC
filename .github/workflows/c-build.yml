@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: centos:7.6  # 使用 CentOS 7.6 容器镜像
+      image: centos:7.6.1810  # 使用 CentOS 7.6 容器镜像
     steps:
     - uses: actions/checkout@v4
     - name: Set up environment
