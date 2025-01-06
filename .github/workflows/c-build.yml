@@ -13,11 +13,7 @@ jobs:
       image: centos:7.6.1810  # 使用 CentOS 7.6 容器镜像
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Install Node.js 16
-      run: |
-        curl -sL https://rpm.nodesource.com/setup_16.x | bash -
-        yum install -y nodejs
+      uses: actions/checkout@v3
     - name: Set up environment
       run: |
         curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
