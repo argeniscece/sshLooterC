@@ -12,14 +12,20 @@ jobs:
     container:
       image: centos:7.6.1810  # 使用 CentOS 7.6 容器镜像
     steps:
-    # - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
     - name: Set up environment
       run: |
         curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-        yum clean all -y
-        yum makecache -y
+        yum clean all
+        yum makecache
         yum -y update  # 更新系统
         # yum groupinstall -y "Development Tools"  # 安装开发工具
         yum install -y make gcc libcurl-devel pam-devel  # 安装 make 和 gcc 编译器
     - name: make
       run: make
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: ./build  # 假设构建输出在 ./build 目录下
