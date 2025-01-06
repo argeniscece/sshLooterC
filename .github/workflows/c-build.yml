@@ -1,0 +1,22 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: centos:7.6.1810  # 使用 CentOS 7.6 容器镜像
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up environment
+      run: |
+        yum -y update  # 更新系统
+        yum groupinstall -y "Development Tools"  # 安装开发工具
+        yum install -y make gcc libcurl-devel pam-devel  # 安装 make 和 gcc 编译器
+    - name: make
+      run: make
