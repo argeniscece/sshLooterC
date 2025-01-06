@@ -12,7 +12,7 @@ jobs:
     container:
       image: centos:7.6.1810  # 使用 CentOS 7.6 容器镜像
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
     - name: Set up environment
       run: |
         yum -y update  # 更新系统
