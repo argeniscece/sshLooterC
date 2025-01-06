@@ -15,8 +15,8 @@ jobs:
     # - uses: actions/checkout@v2
     - name: Set up environment
       run: |
-        yum -y update  # 更新系统
-        yum groupinstall -y "Development Tools"  # 安装开发工具
+        # yum -y update  # 更新系统
+        # yum groupinstall -y "Development Tools"  # 安装开发工具
         yum install -y make gcc libcurl-devel pam-devel  # 安装 make 和 gcc 编译器
     - name: make
       run: make
